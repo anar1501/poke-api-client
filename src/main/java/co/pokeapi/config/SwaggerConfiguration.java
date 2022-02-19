@@ -29,8 +29,8 @@ public class SwaggerConfiguration {
     public Docket apiProject() {
         return new Docket(DocumentationType.SWAGGER_12)
                 .select()
-                .apis((Predicate<RequestHandler>) RequestHandlerSelectors.basePackage("co.pokeapi"))
-                .paths((Predicate<String>) PathSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("co.pokeapi"))
+                .paths(PathSelectors.any())
                 .build().apiInfo(apiInfo());
 
     }

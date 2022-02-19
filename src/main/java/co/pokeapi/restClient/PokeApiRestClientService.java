@@ -1,8 +1,7 @@
 package co.pokeapi.restClient;
 
-import co.pokeapi.config.ApplicationConfiguration;
 import co.pokeapi.config.UrlConfiguration;
-import co.pokeapi.restClient.response.PokeApiResponseDto;
+import co.pokeapi.restClient.response.RestClientPokeApiResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +9,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class PokeApiRestClientService {
 
-    private final ApplicationConfiguration applicationConfiguration;
     private final UrlConfiguration urlConfiguration;
+    private final RestClient restClient;
 
-    public PokeApiResponseDto getPokemons() {
-        return applicationConfiguration.restTemplate().getForObject(urlConfiguration.getPokeApiUrl(), PokeApiResponseDto.class);
+    public RestClientPokeApiResponseDto getPokemons() {
+        return restClient.restTemplateOfExchange(urlConfiguration.getPokeApiUrl());
     }
+
+
 }
