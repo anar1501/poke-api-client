@@ -7,9 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface ToDto {
-
     ToDto INSTANCE = Mappers.getMapper(ToDto.class);
-
     MyPokeApiApiResponseDto toDto(RestClientPokeApiResponseDto pokeApiResponseDto);
-
 }
